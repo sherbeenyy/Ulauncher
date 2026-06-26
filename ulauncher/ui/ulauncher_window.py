@@ -105,10 +105,10 @@ class UlauncherWindow(Gtk.ApplicationWindow):
             has_focus=True,
             is_focus=True,
             height_request=30,
-            margin_top=15,
-            margin_bottom=15,
-            margin_start=20,
-            margin_end=20,
+            margin_top=20,
+            margin_bottom=20,
+            margin_start=28,
+            margin_end=28,
             receives_default=True,
         )
 
@@ -119,7 +119,7 @@ class UlauncherWindow(Gtk.ApplicationWindow):
             receives_default=False,
             halign=Gtk.Align.CENTER,
             valign=Gtk.Align.CENTER,
-            margin_end=15,
+            margin_end=20,
         )
 
         self.prompt.pack_start(self.prompt_input, True, True, 0)

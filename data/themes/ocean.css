@@ -1,24 +1,22 @@
 /**
- * Glass Midnight — Deep dark glass theme
+ * Ocean — Deep navy glass with cyan
  */
 
 /* ── Color palette ─────────────────────────────────────────── */
-@define-color accent_color #7c6af7;
-@define-color accent_alpha_high rgba(124, 106, 247, 0.20);
-@define-color accent_alpha_low  rgba(124, 106, 247, 0.06);
+@define-color accent_color #22d3ee;
 
-@define-color selected_bg_color rgba(124, 106, 247, 0.28);
-@define-color selected_fg_color #e8e6ff;
-@define-color input_color #dddaf8;
+@define-color selected_bg_color rgba(34, 211, 238, 0.22);
+@define-color selected_fg_color #cffafe;
+@define-color input_color #a5f3fc;
 @define-color caret_color @accent_color;
 
-@define-color item_name #c8c5f0;
-@define-color item_text rgba(200, 197, 240, 0.45);
-@define-color item_text_selected rgba(200, 197, 240, 0.75);
-@define-color item_name_selected #eeeeff;
-@define-color item_shortcut_color rgba(255, 255, 255, 0.18);
-@define-color item_highlight @accent_color;
-@define-color item_highlight_selected #b3a6ff;
+@define-color item_name #a5f3fc;
+@define-color item_text rgba(130, 210, 230, 0.42);
+@define-color item_text_selected rgba(130, 220, 240, 0.75);
+@define-color item_name_selected #e0faff;
+@define-color item_shortcut_color rgba(255, 255, 255, 0.16);
+@define-color item_highlight #22d3ee;
+@define-color item_highlight_selected #67e8f9;
 
 /* ── Entrance animation ─────────────────────────────────────── */
 @keyframes item-appear {
@@ -26,26 +24,24 @@
   to   { opacity: 1; }
 }
 
-/* ── Window — frosted glass card ────────────────────────────── */
+/* ── Window ─────────────────────────────────────────────────── */
 .app {
   font-family: "Ubuntu Sans", "Ubuntu", "Noto Sans", sans-serif;
-  /* Semi-transparent background — shows compositor/desktop through */
-  background-color: rgba(11, 11, 20, 0.86);
-  /* Glass sheen: subtle light reflection from top-left */
+  background-color: rgba(6, 14, 28, 0.90);
   background-image: linear-gradient(
     145deg,
-    rgba(255, 255, 255, 0.08) 0%,
-    rgba(255, 255, 255, 0.02) 40%,
+    rgba(34, 211, 238, 0.07) 0%,
+    rgba(6, 182, 212, 0.02) 40%,
     transparent 100%
   );
-  border: 1px solid rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(34, 211, 238, 0.12);
   border-radius: 20px;
 }
 
 /* ── Separator ──────────────────────────────────────────────── */
 .app scrolledwindow {
   background-color: transparent;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(34, 211, 238, 0.08);
 }
 
 /* ── Search input ───────────────────────────────────────────── */
@@ -88,15 +84,15 @@
 }
 
 .selected.item-box {
-  background-color: rgba(124, 106, 247, 0.18);
+  background-color: rgba(34, 211, 238, 0.12);
   background-image: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.06) 0%,
     transparent 60%
   );
   border-radius: 12px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10),
-              inset 0 0 0 1px rgba(124, 106, 247, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08),
+              inset 0 0 0 1px rgba(34, 211, 238, 0.14);
 }
 
 .item-text {
@@ -139,20 +135,20 @@
 }
 
 .selected.item-box .item-shortcut {
-  color: rgba(255, 255, 255, 0.40);
+  color: rgba(103, 232, 249, 0.50);
 }
 
 /* ── Preferences button ─────────────────────────────────────── */
 .prefs-btn {
   border-radius: 8px;
-  opacity: 0.55;
+  opacity: 0.50;
   box-shadow: none;
   transition: opacity 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
 }
 
 .prefs-btn:hover {
-  background-color: rgba(255, 255, 255, 0.09);
-  background-image: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.03) 100%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+  background-color: rgba(34, 211, 238, 0.10);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+  box-shadow: inset 0 0 0 1px rgba(34, 211, 238, 0.16);
   opacity: 1;
 }

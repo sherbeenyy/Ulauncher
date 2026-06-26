@@ -48,12 +48,13 @@ notebook tab {
 }
 
 .preferences-section-card {
-  border-radius: 10px;
+  border-radius: 14px;
   margin-bottom: 32px;
 }
 
 .preferences-setting-row {
   padding: 16px 0;
+  transition: background-color 120ms ease;
 }
 
 .preferences-setting-row:first-child {
@@ -98,9 +99,9 @@ notebook tab {
 }
 
 .status-badge {
-  padding: 2px 6px;
+  padding: 3px 8px;
   font-weight: 600;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 11px;
   color: black;
   letter-spacing: 0.3px;
@@ -176,7 +177,7 @@ notebook tab {
 
 .shortcuts-command-editor {
   padding: 4px;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .shortcuts-options {

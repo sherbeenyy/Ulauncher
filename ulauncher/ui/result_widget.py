@@ -34,9 +34,9 @@ class ResultWidget(Gtk.EventBox):
         self.jump_keys = jump_keys if jump_keys is not None else Settings.load().get_jump_keys()
         text_scaling_factor = get_text_scaling_factor()
         icon_size = 25 if result.compact else 40
-        inner_margin_x = int(12.0 * text_scaling_factor)
-        outer_margin_x = int(18.0 * text_scaling_factor)
-        margin_y = (3 if result.compact else 5) * text_scaling_factor
+        inner_margin_x = int(14.0 * text_scaling_factor)
+        outer_margin_x = int(20.0 * text_scaling_factor)
+        margin_y = (3 if result.compact else 7) * text_scaling_factor
 
         super().__init__()
         self.get_style_context().add_class("item-frame")

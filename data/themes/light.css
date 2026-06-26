@@ -1,104 +1,155 @@
 /**
- * App Window
+ * Glass Crystal — Clean light glass theme
  */
-@define-color bg_color #f2f2f2;
-@define-color window_shadow rgba(0, 0, 0, 0.5);
-@define-color window_bg @bg_color;
-@define-color window_border_color #b1b1b1;
-@define-color prefs_background #ccc;
 
-/**
- * Input
- */
-@define-color selected_bg_color #999;
-@define-color selected_fg_color #fafafa;
-@define-color input_color #555;
-@define-color caret_color lighter(@input_color);
+/* ── Color palette ─────────────────────────────────────────── */
+@define-color accent_color #4f46e5;
 
-/**
- * Result items
- */
-@define-color item_name #333;
-@define-color item_text lighter(@item_name);
-@define-color item_box_selected #d6d6d6;
-@define-color item_text_selected @item_name;
-@define-color item_name_selected @item_name;
-@define-color item_shortcut_color #777;
-@define-color item_shortcut_shadow #fff;
-@define-color item_shortcut_color_sel #444;
-@define-color item_shortcut_shadow_sel lighter(@item_box_selected);
-@define-color item_highlight #2c74cc;
-@define-color item_highlight_selected @item_highlight;
+@define-color selected_bg_color rgba(79, 70, 229, 0.18);
+@define-color selected_fg_color #ffffff;
+@define-color input_color #1e1b4b;
+@define-color caret_color @accent_color;
 
-.app {
-  /* Note: box-shadow is now controlled by the application based on user settings */
-  background-color: @window_bg;
-  border: 1px solid @window_border_color;
-  border-radius: 4px;
+@define-color item_name #1e1b4b;
+@define-color item_text rgba(30, 27, 75, 0.45);
+@define-color item_text_selected rgba(30, 27, 75, 0.70);
+@define-color item_name_selected #1e1b4b;
+@define-color item_shortcut_color rgba(0, 0, 0, 0.20);
+@define-color item_highlight @accent_color;
+@define-color item_highlight_selected #3730a3;
+
+/* ── Entrance animation ─────────────────────────────────────── */
+@keyframes item-appear {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
+/* ── Window — frosted glass card ────────────────────────────── */
+.app {
+  font-family: "Ubuntu Sans", "Ubuntu", "Noto Sans", sans-serif;
+  /* Near-white glass: shows a hint of the compositor through */
+  background-color: rgba(252, 252, 255, 0.92);
+  /* Subtle warm gradient sheen from top */
+  background-image: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.90) 0%,
+    rgba(240, 238, 255, 0.40) 100%
+  );
+  border: 1px solid rgba(79, 70, 229, 0.14);
+  border-radius: 20px;
+}
+
+/* ── Separator ──────────────────────────────────────────────── */
+.app scrolledwindow {
+  background-color: transparent;
+  border-top: 1px solid rgba(79, 70, 229, 0.08);
+}
+
+/* ── Search input ───────────────────────────────────────────── */
 .input {
-  font-size: 170%;
+  font-size: 110%;
+  font-weight: 300;
+  letter-spacing: 0.2px;
   padding: 5px 0 5px 7px;
   caret-color: @caret_color;
   color: @input_color;
+  background-color: transparent;
+  box-shadow: none;
+  transition: color 150ms ease;
 }
 
-/**
- * Selected text in input
- */
 .input *:selected,
 .input *:focus,
 *:selected:focus {
-  background-color: alpha (@selected_bg_color, 0.9);
+  background-color: @selected_bg_color;
   color: @selected_fg_color;
+}
+
+/* ── Result items ───────────────────────────────────────────── */
+.result-box {
+  background-color: transparent;
+  padding-bottom: 6px;
+}
+
+.item-frame {
+  animation: item-appear 160ms ease-out;
+}
+
+.item-box {
+  background-color: transparent;
+  background-image: none;
+  border-radius: 12px;
+  margin: 3px 10px;
+  box-shadow: none;
+  transition: background-color 150ms ease-in-out;
+}
+
+.selected.item-box {
+  background-color: rgba(79, 70, 229, 0.11);
+  background-image: linear-gradient(
+    90deg,
+    rgba(79, 70, 229, 0.10) 0%,
+    transparent 70%
+  );
+  border-radius: 12px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.80),
+              inset 0 0 0 1px rgba(79, 70, 229, 0.12);
 }
 
 .item-text {
   color: @item_text;
+  transition: color 150ms ease-in-out;
 }
+
 .item-name {
   font-size: 120%;
   color: @item_name;
+  transition: color 150ms ease-in-out;
 }
+
 .item-highlight {
   color: @item_highlight;
 }
 
-/* Small result item */
 .small-result-item .item-name {
   font-size: 100%;
 }
+
 .item-descr {
   font-size: 80%;
 }
 
-.selected.item-box {
-  background-color: @item_box_selected;
-  border: none;
-}
 .selected.item-box .item-text {
   color: @item_text_selected;
 }
+
 .selected.item-box .item-name {
   color: @item_name_selected;
 }
+
 .selected.item-box .item-highlight {
   color: @item_highlight_selected;
 }
+
 .item-shortcut {
   color: @item_shortcut_color;
-  text-shadow: 1px 1px 1px @item_shortcut_shadow;
-}
-.selected.item-box .item-shortcut {
-  color: @item_shortcut_color_sel;
-  text-shadow: 1px 1px 1px @item_shortcut_shadow_sel;
 }
 
-.prefs-btn {
-  border-radius: 12px;
-  opacity: 0.8;
+.selected.item-box .item-shortcut {
+  color: rgba(79, 70, 229, 0.50);
 }
+
+/* ── Preferences button ─────────────────────────────────────── */
+.prefs-btn {
+  border-radius: 8px;
+  opacity: 0.45;
+  box-shadow: none;
+  transition: opacity 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+}
+
 .prefs-btn:hover {
-  background-color: @prefs_background;
+  background-color: rgba(79, 70, 229, 0.08);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.60) 0%, rgba(255,255,255,0.0) 100%);
+  box-shadow: inset 0 0 0 1px rgba(79, 70, 229, 0.12);
+  opacity: 0.90;
 }
